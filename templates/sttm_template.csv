@@ -1,0 +1,2 @@
+source_system,source_table,source_column,source_type,target_table,target_column,target_type,transformation_rule,null_handling,default_value,business_definition,owner,signoff_status
+EXAMPLE_SRC,src_table,src_col,VARCHAR(50),dwh_table,tgt_col,VARCHAR(50),"Direct move; trim whitespace",Reject record,,Business meaning of the column in one sentence,Data Engineering,Draft

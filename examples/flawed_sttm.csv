@@ -1,0 +1,7 @@
+source_system,source_table,source_column,source_type,target_table,target_column,target_type,transformation_rule,null_handling,default_value,business_definition,owner,signoff_status
+CRM,customer,customer_id,INT,dim_customer,customer_key,INT,"Direct move",Reject record,,System identifier for the customer,Data Engineering,Draft
+CRM,customer,legacy_id,INT,dim_customer,customer_key,INT,"Direct move",Reject record,,Legacy identifier merged without a stated rule,Data Engineering,Draft
+CRM,customer,email,VARCHAR(200),dim_customer,email_address,VARCHAR(200),"",Set null,,,,Data Engineering,Draft
+CRM,customer,birth_date,VARCHAR(10),dim_customer,birth_date,DATE,"Direct move",Set null,,Date of birth as text in source,Data Engineering,Draft
+CRM,customer,full_name,VARCHAR(120),dim_customer,customer_name,VARCHAR(120),"Trim",Reject record,,Legal full name of the customer,Data Engineering,Draft
+CRM,customer,internal_score,INT,,,,,,,Score carried in extract with no target,Data Engineering,Draft

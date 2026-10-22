@@ -1,0 +1,7 @@
+source_system,source_table,source_column,source_type,target_table,target_column,target_type,transformation_rule,null_handling,default_value,business_definition,owner,signoff_status
+CRM,customer,customer_id,INT,dim_customer,customer_key,INT,"Direct move; reject on duplicate",Reject record,,System identifier for the customer,Data Engineering,Approved
+CRM,customer,full_name,VARCHAR(120),dim_customer,customer_name,VARCHAR(120),"Trim; collapse internal whitespace",Reject record,,Legal full name of the customer,Data Engineering,Approved
+CRM,customer,email,VARCHAR(200),dim_customer,email_address,VARCHAR(200),"Lowercase; trim",Set null,,Primary contact email,Data Engineering,Approved
+CRM,customer,state_code,VARCHAR(20),dim_customer,state_code,VARCHAR(2),"Lookup USPS code from state reference table",Set default,ZZ,US state of residence (USPS 2-letter),Data Engineering,Approved
+CRM,customer,created_ts,TIMESTAMP,dim_customer,created_date,DATE,"CAST(created_ts AS DATE)",Reject record,,Date the customer record was created,Data Engineering,Approved
+CRM,customer,loyalty_tier,VARCHAR(20),dim_customer,loyalty_tier,VARCHAR(20),"Uppercase; map BRONZE/SILVER/GOLD/PLATINUM",Set default,STANDARD,Membership tier at time of load,Data Engineering,Approved
